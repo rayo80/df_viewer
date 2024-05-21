@@ -10,7 +10,15 @@ def load_data():
     return dfr
 
 
+def reemplazar(val):
+    if val == '--':
+        return None
+    return val
+
 df = load_data()
+df['Potencia Rx'] = df['Potencia Rx'].apply(reemplazar)
+df['Potencia Rx'] = df['Potencia Rx'].astype(float)
+
 
 create_data = {
     "STATUS_ONT": "select",
